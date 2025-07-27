@@ -36,22 +36,22 @@
 <p>2. controllers/userController.js</p>
 <pre>
 		const userService = require('../services/userService');
-    	exports.getUsers = async (req, res, next) => {
-    		try {
-    			const users = await userService.getAllUsers();
-    			res.json(users);
-    		} catch (err) {
-    			next(err);
-    		}
-    	};
+		exports.getUsers = async (req, res, next) => {
+			try {
+				  const users = await userService.getAllUsers();
+				  res.json(users)
+				} catch (err) {
+					next(err);
+				}
+			};
 </pre>
 
 <p>3. services/userService.js</p>
 <pre>
 		const UserModel = require('../models/UserModel');
-    	exports.getAllUsers = async () => {
-    		return UserModel.find();
-    	};
+		exports.getAllUsers = async () => {
+			return UserModel.find();
+		};
 </pre>
 
 <p>4. app.js</p>
@@ -59,9 +59,9 @@
 		const express = require('express');
 		const app = express();
 		const userRoutes = require('./routes/userRoutes');
-    	app.use(express.json());
-    	app.use('/users', userRoutes);
-    	module.exports = app;
+		app.use(express.json());
+		app.use('/users', userRoutes);
+		module.exports = app;
 
 </pre>
 
@@ -69,7 +69,7 @@
 <pre>
 		const app = require('./app');
 		const PORT = process.env.PORT || 3000;
-    	app.listen(PORT, () => {
-    		console.log(`Server running on http://localhost:${PORT}`);
-    	});
+		app.listen(PORT, () => {
+			console.log(`Server running on http://localhost:${PORT}`);
+		});
 </pre>
