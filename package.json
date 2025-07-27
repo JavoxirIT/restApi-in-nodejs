@@ -1,7 +1,7 @@
 {
     "name": "practic",
     "version": "1.0.0",
-    "description": "Samo obucheniye",
+    "description": "mini REST API server",
     "main": "index.js",
     "type": "commonjs",
     "scripts": {

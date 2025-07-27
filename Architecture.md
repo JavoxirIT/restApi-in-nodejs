@@ -25,7 +25,6 @@
 <p>1. routes/userRoutes.js</p>
 
 <pre>
-	<code>
 		const express = require('express');
 		const router = express.Router();
 		const userController = require('../controllers/userController');
@@ -34,12 +33,10 @@
 		router.post('/', userController.createUser);
 
 		module.exports = router;
-	</code>
 </pre>
 
 <p>2. controllers/userController.js</p>
 <pre>
-	<code>
 		const userService = require('../services/userService');
 
     	exports.getUsers = async (req, res, next) => {
@@ -50,26 +47,21 @@
     			next(err);
     		}
     	};
-    </code>
 
 </pre>
 
 <p>3. services/userService.js</p>
 <pre>
-	<code>
 		const UserModel = require('../models/UserModel');
 
     	exports.getAllUsers = async () => {
     		return UserModel.find();
     	};
 
-    </code>
-
 </pre>
 
 <p>4. app.js</p>
 <pre>
-	<code>
 		const express = require('express');
 		const app = express();
 		const userRoutes = require('./routes/userRoutes');
@@ -78,20 +70,16 @@
     	app.use('/users', userRoutes);
 
     	module.exports = app;
-    </code>
 
 </pre>
 
 <p>5. server.js</p>
 <pre>
-	<code>
 		const app = require('./app');
 		const PORT = process.env.PORT || 3000;
 
     	app.listen(PORT, () => {
     		console.log(`Server running on http://localhost:${PORT}`);
     	});
-
-    </code>
 
 </pre>
